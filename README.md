@@ -1,1 +1,1 @@
-# MI_Opcion-lis
+# Mesterséges intelligencia (GKNB_INTM002) tárgyhoz tartozó opcionális házi feladat. 
