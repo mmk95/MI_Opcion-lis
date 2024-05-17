@@ -1,13 +1,12 @@
 from datetime import datetime, timedelta
 import yfinance as yf
-import tensorflow as tf 
 from keras import Sequential
 from keras.layers import Dense, Dropout, LSTM
 import pandas as pd 
 import matplotlib.pyplot as plt 
 from sklearn.preprocessing import MinMaxScaler 
 import numpy as np 
-import seaborn as sns  
+ 
 
 
 nvidia = "NVDA"
@@ -56,7 +55,7 @@ actual_prices = test_data['Close'].values
 
 total_dataset = pd.concat((data['Close'], test_data['Close']), axis=0)
 
-model_inputs = total_dataset[len(total_dataset)-len(test_data) -  prediction_days:].values
+model_inputs = total_dataset[len(total_dataset)-len(test_data) - prediction_days:].values
 model_inputs = model_inputs.reshape(-1,1)
 model_inputs = scaler.transform(model_inputs)
 
@@ -85,3 +84,4 @@ real_data = np.reshape(real_data  , (real_data.shape[0], real_data.shape[1],1))
 prediction = model.predict(real_data)
 prediction = scaler.inverse_transform(prediction)
 print(f'Predicted value = {prediction}')
+
